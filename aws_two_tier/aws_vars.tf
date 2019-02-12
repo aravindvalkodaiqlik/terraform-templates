@@ -1,13 +1,9 @@
 data "aws_availability_zones" "available" {}
-variable "aws_region" {}
 variable "WebCIDR_Block" {}
 variable "PublicCIDR_Block" {}
-variable "MasterS3Bucket" {}
 variable "VPCName" {}
 variable "VPCCIDR" {}
-variable "ServerKeyName" {}
 variable "StackName" {}
-variable "fw_instance_size" {}
 variable "PANFWRegionMap" {
   type = "map"
   default =
@@ -22,7 +18,7 @@ variable "PANFWRegionMap" {
       "eu-west-1"      =   "ami-a95b4fc9",
       "eu-west-2"      =   "ami-876a8de0",
       "sa-east-1"      =   "ami-9c0154f0",
-      "us-east-1"      =   "ami-a2fa3bdf",
+      "us-east-1"      =   "ami-bffd3cc2",
       "us-east-2"      =   "ami-11e1d774",
       "ca-central-1"   =   "ami-64038400",
       "ap-south-1"     =   "ami-e780d988"
@@ -63,4 +59,23 @@ variable "UbuntuRegionMap" {
       "ca-central-1"   =  "ami-b3d965d7",
       "ap-south-1"     =  "ami-c2ee9dad"
   }
+}
+
+variable "MasterS3Bucket" {
+  type = "string"
+  default = "paloaltonetwork"
+}
+
+variable "ServerKeyName" {
+  type = "string"
+  default = "terraform-keys2"
+}
+
+variable "aws_region" {
+  type = "string"
+  default = "us-east-1"
+}
+variable "fw_instance_size" {
+  type = "string"
+  default = "m4.xlarge"
 }

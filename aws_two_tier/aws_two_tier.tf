@@ -1,4 +1,8 @@
 
+ resource "aws_key_pair" "terraform-keys2" {
+        key_name = "terraform-keys2"
+        public_key = "<use ssh-keygen -f terraform-keys2`>""
+  }
 /*
   Create the VPC
 */
